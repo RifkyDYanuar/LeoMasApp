@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContactUsActivity">
+    <ImageView
+        android:id="@+id/image_header"
+        android:alpha="0.4"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:src="@drawable/customer_care"
+        android:scaleType="fitStart"
+        android:cropToPadding="true"/>
+
+        <LinearLayout
+            android:id="@+id/layout_header"
+            android:layout_width="match_parent"
+            android:layout_marginTop="60dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_weight="5"
+                android:id="@+id/back"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_arrow_back_24"/>
+            <TextView
+                android:textColor="@color/black"
+                android:fontFamily="@font/inter_bold"
+                android:layout_weight="1"
+                android:text="@string/contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    <TextView
+        android:layout_marginVertical="60dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_below="@id/layout_header"
+        android:id="@+id/text_contact"
+        android:textAlignment="center"
+        android:fontFamily="@font/inter_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="@string/contact_text"
+        android:layout_marginTop="6dp"/>
+    <LinearLayout
+        android:background="@drawable/customer_custom"
+        android:layout_marginTop="230dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="36dp"
+            android:layout_below="@id/image_header"
+            android:id="@+id/layout_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/whatsapps"
+                android:layout_marginVertical="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+
+                    android:layout_weight="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/whatsapp"/>
+                <TextView
+                    android:fontFamily="@font/inter_medium"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="089657786880"
+                    android:layout_marginTop="6dp"
+                    />
+                <ImageView
+                    android:layout_weight="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_keyboard_arrow_right_24"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/email"
+                android:layout_marginVertical="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+
+                    android:layout_weight="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/email"/>
+                <TextView
+                    android:fontFamily="@font/inter_medium"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="rifkydewaniyanuar@gmail.com"
+                    android:layout_marginTop="6dp"
+                    />
+                <ImageView
+                    android:layout_weight="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_keyboard_arrow_right_24"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/call"
+                android:layout_marginVertical="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+
+                    android:layout_weight="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/outline_phone_24"/>
+                <TextView
+                    android:fontFamily="@font/inter_medium"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="62+ 89657786880"
+                    android:layout_marginTop="6dp"
+                    />
+                <ImageView
+                    android:layout_weight="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_keyboard_arrow_right_24"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

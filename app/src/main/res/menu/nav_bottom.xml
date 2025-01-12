@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:id="@+id/dashboard"
+            android:enabled="true"
+            android:icon="@drawable/outline_other_houses_24"
+            android:title="@string/dashboard"/>
+        <item android:title="@string/history"
+            android:id="@+id/history"
+            android:enabled="true"
+            android:icon="@drawable/outline_notifications_24"/>
+        <item android:id="@+id/product"
+            android:enabled="true"
+            android:title="@string/jewelry"
+            android:icon="@drawable/outline_diamond_24"
+            android:iconTint="@color/black"
+            android:tooltipText="@string/jewelry"/>
+        <item android:title="@string/fav"
+            android:id="@+id/favorite"
+            android:enabled="true"
+            android:icon="@drawable/outline_favorite_border_2"/>
+
+
+        <item android:id="@+id/account"
+                android:title="@string/profile"
+                android:icon="@drawable/outline_person_outline_24"/>
+
+</menu>

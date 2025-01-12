@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "611676849105",
+    "project_id": "leomas-app",
+    "storage_bucket": "leomas-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:611676849105:android:f5889ccfb47defe2d516f0",
+        "android_client_info": {
+          "package_name": "com.leo.leomasapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdtOwSh6XWFxLsfUUJpKpceQGQgpgnbWU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AllProduct">
+    <LinearLayout
+        android:id="@+id/layout_header"
+        android:layout_width="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_weight="5"
+            android:id="@+id/back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_arrow_back_24"/>
+        <TextView
+            android:fontFamily="@font/inter_bold"
+            android:layout_weight="1"
+            android:text="@string/all_product_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_marginTop="20sp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_below="@id/layout_header"
+        android:textSize="20sp"
+        android:fontFamily="@font/inter_bold"
+        android:text="@string/get_beauty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:textAlignment="textStart"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginVertical="20dp"
+        android:id="@+id/tablayout"
+        android:layout_below="@id/text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabMode="fixed"
+        app:tabIndicatorAnimationMode="elastic"
+        app:tabSelectedTextColor="@color/dark_blue"
+        app:tabIndicatorGravity="bottom"
+        app:tabIndicatorFullWidth="true"
+        app:tabIndicatorColor="@color/dark_blue"
+        app:tabIndicatorHeight="4dp"
+        app:tabGravity="fill"
+        android:background="@color/white" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tablayout"/>
+
+
+</RelativeLayout>

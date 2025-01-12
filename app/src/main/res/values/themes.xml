@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.LeoMasApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+         <item name="colorPrimary">@color/blue</item>
+        <item name="colorSecondary">@color/purple_light</item>
+        <item name="colorTertiary">@color/teal</item>
+    </style>
+
+    <style name="Theme.LeoMasApp" parent="Base.Theme.LeoMasApp" />
+</resources>

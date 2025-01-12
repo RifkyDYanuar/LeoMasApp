@@ -1,0 +1,86 @@
+<resources>
+    <string name="app_name">LeoMasApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!--    Sign In -->
+    <string name="title_signin">SIGN IN YOUR ACCOUNT \nTHIS HERE</string>
+    <string name="title_username">Username/Email</string>
+    <string name="title_password">Password</string>
+    <string name="login">Login</string>
+    <string name="login_with">Login With</string>
+    <string name="slider">Slide for Sign Up</string>
+    <string name="forgot">Forgot Password?</string>
+
+    <!--    Sign UP-->
+    <string name="title_signup">SIGN UP ACCOUNT \nTHIS HERE</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="slider_signup">Slide for Sign In</string>
+    <string name="sk">I agree to the Terms and Policies that apply at Leo Mas</string>
+
+
+    <string name="leomass">LEOMAS | STORE</string>
+    <string name="dev">Powered By RifkyDev 2024</string>
+
+    <string name="welcome">WELCOME</string>
+    <string name="text_title">TO LEO MAS STORE</string>
+    <string name="content">Welcome to Leo Mas, the place of beauty of quality jewelry. Find a collection of luxury jewelry that will add beauty to your every special moment.</string>
+    <string name="start">Get Started</string>
+
+    <!--Dashboard-->
+    <string name="title">Choose the Jewelry you like at \nLeo Mas!</string>
+    <string name="search">Search..</string>
+    <string name="bracellet">Bracellet</string>
+    <string name="neklace">Necklace</string>
+    <string name="rings">Rings</string>
+    <string name="new_years">New Years in Leo Mas!</string>
+    <string name="text_view_all">View All</string>
+    <string name="text_view_detail">View Detail</string>
+    <string name="buy_now">Buy Now</string>
+    <string name="text_populer">Popular in Leo Mas!</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="jewelry">Product</string>
+    <string name="fav">Favorite</string>
+    <string name="history">Notification</string>
+    <string name="profile">My Account</string>
+
+
+    <!--    Profil-->
+    <string name="myprofil">My Profile</string>
+    <string name="myfavorite">My Favorite</string>">
+    <string name="myhistory">My History</string>
+    <string name="aboutus">About Us</string>
+    <string name="contact">Contact Us</string>
+    <string name="term">Term and Policies</string>
+    <string name="logout">Logout</string>
+    <string name="changes">Changes Profil</string>
+    <string name="contact_text">We are ready to help anytime and anywhere. Please contact us anytime via:</string>
+    <string name="client_id">611676849105-nglhrpmqmrjtucet3bmrlcshpo5i7oqh.apps.googleusercontent.com</string>
+
+    <!--    Aboyt us-->
+    <string name="header_about">LEO MAS KUNINGAN</string>
+    <string name="title_about">"Original Gold with the first beauty and beauty in Kuningan"</string>
+    <string name="about_content">The diamond jewelry boutique that was established in 2005 is famous as a jewelry boutique that always provides something different from the others, and is trusted for its quality by many public figures as a support for their diamond jewelry. With 5 Gold Outlet boutiques and will continue to grow, which are located in and Kuningan will make it easier for Customers to enjoy the service facilities they need.</string>
+    <string name="developer">Developer By Rifky Dewani Yanuar (20220810096)</string>
+    <string name="policy_title">Privacy Policy</string>
+    <string name="policy_content">Thank you for visiting our website. This privacy policy aims to provide clear information about how we collect, use and protect your personal data. We may collect personal information such as your name, email address and other contact information when you use our website. In addition, non-personal data such as server logs and browser information may also be collected automatically. The information we collect is used to provide services, understand user needs, improve user experience and comply with applicable laws.
+
+    \nWe use cookies and similar tracking technologies to enhance website functionality and collect information about user behavior. Users can manage their cookie preferences through browser settings. We are committed to protecting your personal information and implementing appropriate security measures to prevent unauthorized access, disclosure, alteration and destruction of data.
+
+    \We may share your personal information with third parties within the limits permitted by law or with your permission. We ensure that these third parties adhere to high security and privacy standards. You have the right to access, update or delete your personal information that we hold. We provide you with ways to manage your privacy preferences. We may update this privacy policy from time to time. Significant changes will be notified to users through a notice on the website or through the contact provided. If you have any questions or concerns regarding our privacy policy, please contact us via [email address/contact form]</string>
+    <string name="terms">Terms and Conditions</string>
+    <string name="terms_content">On this page you can commit and understand the terms and conditions of this application which include: Account Creation Guide, Collection Guide, Guide and Order Guide. We are committed to protecting and maintaining the confidentiality of the information you provide to Us. To prevent unauthorized access, We continue to develop physical, electronic, and managerial security procedures necessary to protect your information that We collect online</string>
+
+
+    <!--    All Product-->
+
+    <string name="all_product_header">All Products</string>\
+    <string name="get_beauty">Get your beauty with \nLeo Mas!</string>
+
+
+</resources>
