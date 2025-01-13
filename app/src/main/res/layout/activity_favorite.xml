@@ -9,6 +9,7 @@
     android:layout_height="match_parent"
     tools:context=".FavoriteActivity">
     <LinearLayout
+        android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_marginTop="40dp"
         android:layout_height="wrap_content"
@@ -25,6 +26,48 @@
             android:text="@string/myfavorite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/title"
+        android:layout_below="@id/header"
+        android:layout_marginVertical="30dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_blue"
+        android:textSize="20sp"
+        android:fontFamily="@font/inter_extrabold"
+        android:text="@string/favorite_this"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/title"
+        android:padding="6dp"
+        android:layout_marginHorizontal="20dp"
+        android:id="@+id/favorite_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:visibility="visible"/>
+
+    <LinearLayout
+android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:id="@+id/empty_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/no_content"
+            android:alpha="0.5"/>
+        <TextView
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/empty_favorite"
+            android:textSize="20sp"
+            android:textColor="@color/grey"
+            android:fontFamily="@font/inter_bold"/>
     </LinearLayout>
 
 </RelativeLayout>

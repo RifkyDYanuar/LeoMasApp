@@ -23,6 +23,9 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
     public FavoriteAdapter(List<ProductClass> productClass){
         this.productClass = productClass;
     }
+    public List<ProductClass> getProductClasses() {
+        return productClass;
+    }
     @NonNull
     @Override
     public FavoriteAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

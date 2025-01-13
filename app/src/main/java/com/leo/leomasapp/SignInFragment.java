@@ -1,24 +1,40 @@
 package com.leo.leomasapp;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -27,9 +43,11 @@ import com.leo.leomasapp.Adapter.Resettable;
 
 public class SignInFragment extends Fragment implements Resettable {
 
-    FirebaseAuth auth;
-    FirebaseFirestore db;
 
+    private FirebaseAuth auth;
+     private FirebaseFirestore db;
+    private static final int RC_SIGN_IN = 9001;
+    GoogleSignInClient googleSignInClient;
     public SignInFragment() {
         // Required empty public constructor
     }
@@ -46,6 +64,7 @@ public class SignInFragment extends Fragment implements Resettable {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseApp.initializeApp(requireActivity());
         if (getArguments() != null) {
 
         }
@@ -58,7 +77,25 @@ public class SignInFragment extends Fragment implements Resettable {
         TextInputEditText Username = view.findViewById(R.id.username);
         TextInputEditText Password = view.findViewById(R.id.password);
         Button btnLogin = view.findViewById(R.id.btn_login);
+        ImageView Google = view.findViewById(R.id.google);
+        FirebaseApp.initializeApp(requireActivity());
+        GoogleSignInOptions options = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.client_id))
+                .requestEmail()
+                .build();
+        googleSignInClient =GoogleSignIn.getClient(requireActivity(),options);
 
+
+        Google.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = googleSignInClient.getSignInIntent();
+                mStartForResult.launch(intent);
+
+
+            }
+        });
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -182,4 +219,78 @@ public class SignInFragment extends Fragment implements Resettable {
         if (password !=null)password.setText("");
 
     }
+
+
+    private final ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if (result.getResultCode() == RESULT_OK) {
+                Task<GoogleSignInAccount> accountTask = GoogleSignIn.getSignedInAccountFromIntent(result.getData());
+                try {
+
+                    auth = FirebaseAuth.getInstance();
+                    GoogleSignInAccount signInAccount = accountTask.getResult(ApiException.class);
+                    AuthCredential authCredential = GoogleAuthProvider.getCredential(signInAccount.getIdToken(), null);
+                    auth.signInWithCredential(authCredential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                auth = FirebaseAuth.getInstance();
+                                FirebaseUser currentUser = auth.getCurrentUser();
+                                if (currentUser!= null){
+                                    String Email = currentUser.getEmail();
+                                    String userId = currentUser.getUid();
+                                    String Name = currentUser.getDisplayName();
+
+                                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                    db.collection("users")
+                                            .document(userId)
+                                            .get()
+                                            .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<DocumentSnapshot> taskGoogle) {
+                                                    if (taskGoogle.isSuccessful()) {
+                                                        DocumentSnapshot document = taskGoogle.getResult();
+                                                        if (document!=null && document.exists()) {
+                                                            String name = document.getString("name");
+                                                            String email = document.getString("email");
+                                                            String username = document.getString("username");
+                                                            String password = document.getString("password");
+                                                            Toast.makeText(requireActivity(), "Login is Succesfully!", Toast.LENGTH_SHORT).show();
+                                                            Intent intent = new Intent(requireActivity(), MainActivity.class);
+                                                            intent.putExtra("name", name);
+                                                            intent.putExtra("email", Email);
+                                                            intent.putExtra("username", username);
+                                                            intent.putExtra("password", password);
+                                                            startActivity(intent);
+
+                                                        }
+                                                    }
+                                                    else {
+
+                                                    }
+                                                }
+                                            }).addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Toast.makeText(requireActivity(), "Failed to load user data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
+
+                                }
+
+
+
+                            }
+                        }
+                    });
+                } catch (ApiException e) {
+                    e.printStackTrace();
+                    Toast.makeText(requireActivity(), "Google sign-in failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    });
+
+
 }

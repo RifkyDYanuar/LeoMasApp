@@ -4,7 +4,7 @@
             android:enabled="true"
             android:icon="@drawable/outline_other_houses_24"
             android:title="@string/dashboard"/>
-        <item android:title="@string/history"
+        <item android:title="@string/notification"
             android:id="@+id/history"
             android:enabled="true"
             android:icon="@drawable/outline_notifications_24"/>

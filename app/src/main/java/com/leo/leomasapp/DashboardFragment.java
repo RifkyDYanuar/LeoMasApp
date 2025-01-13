@@ -84,6 +84,20 @@ public class DashboardFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        showHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(requireActivity(), HistoryActivity.class);
+                startActivity(intent);
+            }
+        });
+        showFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(requireActivity(), FavoriteActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         Bundle bundle = getArguments();

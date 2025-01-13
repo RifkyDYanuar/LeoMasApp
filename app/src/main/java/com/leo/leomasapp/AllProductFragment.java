@@ -90,7 +90,6 @@ public class AllProductFragment extends Fragment {
                                         imageProduct2 = R.drawable.diamond_sing_solitaire_round_cws0282_rv_2;
                                         imageProduct3 = R.drawable.diamond_sing_solitaire_round_cws0282_rv_3;
                                         break;
-
                                     case "LMN0001":
                                         imageProduct1 = R.drawable.diamond_necklace_te_amo_lwf0689_rv;
                                         imageProduct2 = R.drawable.diamond_necklace_teamolwf0689_2;

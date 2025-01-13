@@ -1,14 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NotificationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="15dp"
+        android:layout_marginVertical="70dp"
+        android:layout_marginHorizontal="30dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_weight="5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/outline_notifications_24"/>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="@string/notification_header" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="@string/notification_content" />
+                <TextView
+                    android:id="@+id/check"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/dark_blue"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="@string/check_it" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </FrameLayout>

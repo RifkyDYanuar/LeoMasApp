@@ -46,7 +46,7 @@
     <string name="dashboard">Dashboard</string>
     <string name="jewelry">Product</string>
     <string name="fav">Favorite</string>
-    <string name="history">Notification</string>
+    <string name="history">History</string>
     <string name="profile">My Account</string>
 
 
@@ -81,6 +81,15 @@
 
     <string name="all_product_header">All Products</string>\
     <string name="get_beauty">Get your beauty with \nLeo Mas!</string>
+    <string name="favorite_this">Hi Leo! Your favorite products \nwill appear here:</string>
+    <string name="empty_favorite">There are no favorite items! \nPlease add a product.</string>
+    <string name="empty_history">History Transaction not found!</string>
 
+
+<!--    Notification-->
+    <string name="notification">Notification</string>
+    <string name="notification_header">Leo Mas Notification!</string>
+    <string name="notification_content">The product you selected has been added to your favorites.</string>
+    <string name="check_it">Order new </string>
 
 </resources>

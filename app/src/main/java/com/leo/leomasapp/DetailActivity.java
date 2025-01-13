@@ -2,8 +2,11 @@ package com.leo.leomasapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,16 +35,20 @@ import java.util.Objects;
 public class DetailActivity extends AppCompatActivity {
     private boolean isFavorite = false;
     private String favID = null;
+    private String HisID;
     private FirebaseFirestore db ;
     private FirebaseAuth auth;
     TextView nameProduct,hargaProduct,jenisProduct,detailProduct;
     ImageView firstImage,secondImage,lastImage,back,favorite;
+    ProgressBar loading;
+    Button addToCart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_detail);
-
+        addToCart = findViewById(R.id.btn_buy_now);
+        loading = findViewById(R.id.loading);
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
 
@@ -88,6 +95,22 @@ public class DetailActivity extends AppCompatActivity {
                 }else {
                     addFavorite(name,Harga,jenis,detail,image1);
                 }
+            }
+        });
+        addToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loading.setVisibility(View.VISIBLE);
+                addToCart.setEnabled(false);
+                new Handler().postDelayed(new Runnable() {
+                  @Override
+                  public void run() {
+                      loading.setVisibility(View.GONE);
+                      addToCart.setEnabled(true);
+                      addHistory(name,Harga,jenis,detail,image1);
+                  }
+                  },3000);
+
             }
         });
 
@@ -172,5 +195,31 @@ public class DetailActivity extends AppCompatActivity {
                         }
                     });
         }
+    }
+    private void addHistory(String name,Long Harga,String jenis,String detail,int image){
+        String userId = auth.getCurrentUser().getUid();
+        HashMap<String, Object> favoriteData = new HashMap<>();
+        favoriteData.put("userId",userId);
+        favoriteData.put("name_product",name);
+        favoriteData.put("price_product",Harga);
+        favoriteData.put("jenis_product",jenis);
+        favoriteData.put("detail_product",detail);
+        favoriteData.put("image_product",image);
+        db.collection("history")
+                .add(favoriteData)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        isFavorite = true;
+                        HisID = documentReference.getId();
+                        Toast.makeText(DetailActivity.this, "Thanks you for buying!", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(DetailActivity.this, "Failed to added product in Favorite!" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }

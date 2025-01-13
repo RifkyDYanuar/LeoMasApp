@@ -16,6 +16,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 import com.leo.leomasapp.Adapter.ViewPagerAllProductAdapter;
+import com.leo.leomasapp.Data.ProductClass;
 
 public class AllProduct extends AppCompatActivity {
     private TabLayout tabLayout;
@@ -64,10 +65,14 @@ public class AllProduct extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AllProduct.this, MainActivity.class);
-                startActivity(intent);
+                intent.putExtra("username", getIntent().getStringExtra("username"));
+                intent.putExtra("email", getIntent().getStringExtra("email"));
+                intent.putExtra("name", getIntent().getStringExtra("name"));
+                setResult(RESULT_OK, intent);
                 finish();
             }
         });
 
     }
+
 }
