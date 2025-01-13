@@ -68,6 +68,7 @@ public class AllProduct extends AppCompatActivity {
                 intent.putExtra("username", getIntent().getStringExtra("username"));
                 intent.putExtra("email", getIntent().getStringExtra("email"));
                 intent.putExtra("name", getIntent().getStringExtra("name"));
+                intent.putExtra("target_page", 0);
                 setResult(RESULT_OK, intent);
                 finish();
             }

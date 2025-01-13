@@ -31,11 +31,14 @@ public class MainActivity extends AppCompatActivity {
         String Username = intent.getStringExtra("username");
         String Password = intent.getStringExtra("password");
 
+
+
         DataClass data = new DataClass(Name, Email, Username, Password);
-        viewPager2 = findViewById(R.id.view_pager);
+        viewPager2 = findViewById(R.id.view_pager);// Default ke halam
         bottomNavigationView = findViewById(R.id.menu_navbottom);
         ViewPagerAdapter adapter = new ViewPagerAdapter(this, data);
         viewPager2.setAdapter(adapter);
+
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -82,5 +85,31 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Periksa apakah intent membawa target_page dari AllProduct
+        Intent intent = getIntent();
+        if (intent != null && intent.hasExtra("target_page")) {
+            int targetPage = intent.getIntExtra("target_page", 0);
+            viewPager2.setCurrentItem(targetPage);
+            switch (targetPage) {
+                case 0:
+                    bottomNavigationView.setSelectedItemId(R.id.dashboard);
+                    break;
+                case 1:
+                    bottomNavigationView.setSelectedItemId(R.id.history);
+                    break;
+                case 2:
+                    bottomNavigationView.setSelectedItemId(R.id.favorite);
+                    break;
+                case 3:
+                    bottomNavigationView.setSelectedItemId(R.id.account);
+                    break;
+            }
+            intent.removeExtra("target_page");
+        }
     }
 }

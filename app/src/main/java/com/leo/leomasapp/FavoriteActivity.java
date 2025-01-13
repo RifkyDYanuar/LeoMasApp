@@ -96,5 +96,6 @@ public class FavoriteActivity extends AppCompatActivity {
                 finish();
             }
         });
+
     }
 }

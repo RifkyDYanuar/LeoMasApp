@@ -1,10 +1,13 @@
 package com.leo.leomasapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -31,12 +34,14 @@ public class HistoryActivity extends AppCompatActivity {
     List<ProductClass> productClass;
     RecyclerView recyclerView;
     LinearLayout emptyLayout;
+    ImageView back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_history_activity);
         emptyLayout = findViewById(R.id.empty_layout);
+        back = findViewById(R.id.back);
         RecyclerView recyclerView = findViewById(R.id.history_rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         List<ProductClass> productClass = new ArrayList<>();
@@ -86,6 +91,14 @@ public class HistoryActivity extends AppCompatActivity {
                         }
                     }
                 });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+              finish();
+            }
+        });
+
 
     }
 }
