@@ -22,6 +22,7 @@ public class ProductClass {
         this.jenisProduct = jenisProduct;
     }
 
+
     public String getNameProduct() {
         return nameProduct;
     }

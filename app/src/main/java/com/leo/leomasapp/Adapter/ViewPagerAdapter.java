@@ -1,7 +1,6 @@
 package com.leo.leomasapp.Adapter;
 
 import android.os.Bundle;
-import android.widget.Switch;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -12,9 +11,7 @@ import com.leo.leomasapp.AccountFragment;
 import com.leo.leomasapp.DashboardFragment;
 import com.leo.leomasapp.Data.DataClass;
 import com.leo.leomasapp.FavoriteFragment;
-import com.leo.leomasapp.HistoryFragment;
-
-import java.io.Serializable;
+import com.leo.leomasapp.NotificationFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
 
@@ -36,7 +33,7 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
                 dashboardFragment.setArguments(bundle);
                 return dashboardFragment;
             case 1:
-                return new HistoryFragment();
+                return new NotificationFragment();
             case 2:
                 return new FavoriteFragment();
             case 3:
