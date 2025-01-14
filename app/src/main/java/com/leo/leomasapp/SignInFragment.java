@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -76,6 +77,8 @@ public class SignInFragment extends Fragment implements Resettable {
         View view = inflater.inflate(R.layout.fragment_sign_in, container, false);
         TextInputEditText Username = view.findViewById(R.id.username);
         TextInputEditText Password = view.findViewById(R.id.password);
+        TextView forgotPassword = view.findViewById(R.id.forgot_password);
+
         Button btnLogin = view.findViewById(R.id.btn_login);
         ImageView Google = view.findViewById(R.id.google);
         FirebaseApp.initializeApp(requireActivity());
@@ -85,6 +88,16 @@ public class SignInFragment extends Fragment implements Resettable {
                 .build();
         googleSignInClient =GoogleSignIn.getClient(requireActivity(),options);
 
+
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(requireActivity(), ForgotPassword.class);
+                startActivity(intent);
+
+
+            }
+        });
 
         Google.setOnClickListener(new View.OnClickListener() {
             @Override

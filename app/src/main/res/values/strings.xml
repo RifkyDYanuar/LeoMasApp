@@ -86,7 +86,7 @@
     <string name="empty_history">History Transaction not found!</string>
 
 
-<!--    Notification-->
+    <!--    Notification-->
     <string name="notification">Notification</string>
     <string name="notification_header">Leo Mas Notification!</string>
     <string name="notification_content">The product you selected has been added to your favorites.</string>

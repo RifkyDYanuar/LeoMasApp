@@ -210,7 +210,6 @@ public class DetailActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        isFavorite = true;
                         HisID = documentReference.getId();
                         Toast.makeText(DetailActivity.this, "Thanks you for buying!", Toast.LENGTH_SHORT).show();
                     }
